@@ -1,18 +1,18 @@
 //                  0          1          2
-const array = ["México", "Costa Rica", "Panamá"];
+// const array = ["México", "Costa Rica", "Panamá"];
 
-const objeto = [
-    {
-        name: "thunderbolt",
-        type: "electric"
-    },
-    {
-        name: "takle",
-        type: "normal"
-    }
-] 
+// const objeto = [
+//     {
+//         name: "thunderbolt",
+//         type: "electric"
+//     },
+//     {
+//         name: "takle",
+//         type: "normal"
+//     }
+// ] 
 
-const numeros = [10, 5, 9];
+// const numeros = [10, 5, 9];
 
 // // Forma imperativa
 // for(let i = 0; i < array.length; i++) {
@@ -69,21 +69,21 @@ const numeros = [10, 5, 9];
 
 // Efectos secundarios
 
-let secundario = "LOREM";
+// let secundario = "LOREM";
 
-function obtenNombre(nombre) {
-    return nombre + secundario;
-}
+// function obtenNombre(nombre) {
+//     return nombre + secundario;
+// }
 
-console.log(obtenNombre("Gerardo"));
+// console.log(obtenNombre("Gerardo"));
 
-// Estados compartidos
+// // Estados compartidos
 
-let pokemon = "pikachu";
-let info = {
-    type: "electric",
-    height: 25,
-    name: pokemon
-}
+// let pokemon = "pikachu";
+// let info = {
+//     type: "electric",
+//     height: 25,
+//     name: pokemon
+// }
 
-console.log(info);
+// console.log(info);

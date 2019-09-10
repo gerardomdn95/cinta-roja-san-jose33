@@ -15,13 +15,13 @@ export default class CardContainer extends Component {
             .catch((error) => alert("Error obteninedo películas"))
     }
 
-    componentWillMount() {
-        console.log("componentWillMount");
+    constructor(props) {
+        super(props);
         this.getMovies();
     }
 
-    componentDidMount() {
-        console.log("componentDidMount");
+    componentWillMount() {
+        this.getMovies();
     }
 
     render() {

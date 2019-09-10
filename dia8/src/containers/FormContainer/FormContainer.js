@@ -7,7 +7,7 @@ export default function FormContainer() {
         <div className="container">
             <h1>Agregar películas</h1>
             <Link to="/">
-                <button class="btn btn-primary">Inicio</button>
+                <button className="btn btn-primary">Inicio</button>
             </Link>            
             <Form />
         </div>

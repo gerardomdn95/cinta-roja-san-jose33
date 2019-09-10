@@ -1,6 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Form extends Component {
+
+    handleChange(event) {
+        event.preventDefault();
+        this.setState({[event.target.id]: event.target.value})
+    }
+
+    onSubmit() {
+        console.log(this.state);
+        axios.post("https://crud-sanjose.herokuapp.com/api/v1/movie", this.state)
+            .then(() => alert("Registro exitoso"))
+            .catch(error => alert("Ocurrió un error" + error))
+    }
 
     state = {
         title: "Toy Story",
@@ -17,23 +30,23 @@ export default class Form extends Component {
                 <form>
                     <div className="form-group">
                         <label htmlFor="title">Título</label>
-                        <input type="text" className="form-control" id="title" />
+                        <input value={this.state.title} onChange={this.handleChange.bind(this)} type="text" className="form-control" id="title" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="year">Año</label>
-                        <input type="number" className="form-control" id="year" />
+                        <input value={this.state.year} onChange={this.handleChange.bind(this)} type="number" className="form-control" id="year" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Descripción</label>
-                        <input type="text" className="form-control" id="description" />
+                        <input value={this.state.description} onChange={this.handleChange.bind(this)} type="text" className="form-control" id="description" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="image">Liga portada</label>
-                        <input type="text" className="form-control" id="image" />
+                        <label htmlFor="image">URL portada</label>
+                        <input value={this.state.image} onChange={this.handleChange.bind(this)} type="text" className="form-control" id="image" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="liga">Género</label>
-                        <select className="custom-select" id="theme">
+                        <select value={this.state.theme} onChange={this.handleChange.bind(this)} className="custom-select" id="theme">
                             <option value="drama">drama</option>
                             <option value="acción">acción</option>
                             <option value="comedia">comedia</option>
@@ -43,9 +56,9 @@ export default class Form extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="director">Director</label>
-                        <input type="text" className="form-control" id="director" />
+                        <input value={this.state.director} onChange={this.handleChange.bind(this)} type="text" className="form-control" id="director" />
                     </div>
-                    <div className="btn btn-primary">Submit</div>
+                    <div onClick={() => this.onSubmit()} className="btn btn-primary">Submit</div>
                 </form>
             </div>
         )

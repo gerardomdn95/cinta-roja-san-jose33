@@ -1,22 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react';
+import axios from 'axios';
 
-export default class Card extends Component {
-    render() {
-        const { movie } = this.props;
-        return (
-            <div className="col-sm-4">
-                <div className="card">
-                    <img className="card-img-top" alt="..."></img>
-                    <div className="card-body">
-                        <h5 className="card-title">{movie.title}</h5>
-                        <p className="card-text">Año: </p>
-                        <p className="card-text">Descipción: </p>
-                        <p className="card-text">Género:</p>
-                        <p className="card-text">Director: </p>
-                        <button className="btn btn-danger">Eliminar</button>
-                    </div>
-                </div>
-            </div>
-        )
+export default function Card(props) {
+
+    const deleteMovie = (id) => {
+        axios.delete(`https://cinta-roja32.herokuapp.com/api/v1/peliculas/delete?id=${id}`)
+            .then((data) => {
+                window.location.reload();
+            })
+            .catch((error) => console.log(error))
     }
+    const { movie } = props;
+
+    return (
+        <div className="col-sm-4">
+        <div className="card">
+            <img className="card-img-top" src={movie.image[0]} alt="..."></img>
+            <div className="card-body">
+                <h5 className="card-title">{movie.title}</h5>
+                <p className="card-text">Año: {movie.year}</p>
+                <p className="card-text">Descipción: {movie.description}</p>
+                <p className="card-text">Género: {movie.theme}</p>
+                <p className="card-text">Director: {movie.director}</p>
+                <button onClick={() => deleteMovie(movie._id)} className="btn btn-danger">Eliminar</button>
+            </div>
+        </div>
+    </div>
+    )
 }

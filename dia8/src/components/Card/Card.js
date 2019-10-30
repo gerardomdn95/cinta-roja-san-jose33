@@ -8,7 +8,7 @@ export default function Card(props) {
             .then((data) => {
                 window.location.reload();
             })
-            .catch((error) => console.log(error))
+            .catch((error) => alert(error))
     }
     const { movie } = props;
 
